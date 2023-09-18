@@ -159,7 +159,9 @@ def create_test_dir(
             # if the model uses custom ops from there it will fail to load.
             pass
 
-        sess = ort.InferenceSession(test_model_filename, so)
+        sess = ort.InferenceSession(
+            test_model_filename, so, providers=["CUDAExecutionProvider", "CPUExecutionProvider"]
+        )
         outputs = sess.run(output_names, name_input_map)
         name_output_map = {}
         for name, data in zip(output_names, outputs):
