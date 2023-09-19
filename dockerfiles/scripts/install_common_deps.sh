@@ -15,6 +15,7 @@ wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86_64.
 rm ~/miniconda.sh
 /opt/miniconda/bin/conda clean -ya
 
+pip install -U pip
 pip install numpy
 pip install packaging
 pip install "wheel>=0.35.1"
@@ -23,4 +24,5 @@ rm -rf /opt/miniconda/pkgs
 # Dependencies: cmake
 wget --quiet https://github.com/Kitware/CMake/releases/download/v3.27.3/cmake-3.27.3-linux-x86_64.tar.gz
 tar zxf cmake-3.27.3-linux-x86_64.tar.gz
+mv cmake-3.27.3-linux-x86_64 cmake
 rm -rf cmake-3.27.3-linux-x86_64.tar.gz
